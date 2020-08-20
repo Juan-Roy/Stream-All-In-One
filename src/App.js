@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+console.log(process.env, process.env.REACT_APP_TRAKT_KEY);
+
+class App extends Component {
+  async componentDidMount() {
+    console.log(`let's goooo`);
+    let res = await axios.get(
+      "https://cors-anywhere.herokuapp.com/https://api.trakt.tv/shows/trending",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "trakt-api-version": "2",
+          "trakt-api-key": process.env.REACT_APP_TRAKT_KEY,
+        },
+      }
+    );
+    console.log(res);
+  }
+  render() {
+    return <div></div>;
+  }
 }
 
 export default App;
