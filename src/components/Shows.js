@@ -8,14 +8,16 @@ const Shows = () => {
     trendingRequest();
   }, []);
 
+  const displayTrendingShows = () => {
+    return trending.map((show) => {
+      return <li key={show.show.ids.imdb}>{show.show.title}</li>;
+    });
+  };
   console.log("line 11", trending);
   return (
     <React.Fragment>
-      <ul>
-        {trending.map((show) => {
-          return <li>{show.show.title}</li>;
-        })}
-      </ul>
+      <h3>Trending</h3>
+      <ul>{displayTrendingShows()}</ul>
     </React.Fragment>
   );
 };
