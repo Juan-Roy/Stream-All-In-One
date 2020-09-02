@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { ShowsContext, ShowsProvider } from "../contexts/ShowsContext";
-
+import "./styles/Shows.scss";
 const Shows = () => {
   const { trending, trendingRequest } = useContext(ShowsContext);
 
@@ -10,14 +10,22 @@ const Shows = () => {
 
   const displayTrendingShows = () => {
     return trending.map((show) => {
-      return <li key={show.show.ids.imdb}>{show.show.title}</li>;
+      return (
+        <div className="card" key={show.show.ids.imdb}>
+          <h1>{show.show.title}</h1>
+
+          <button>Thumbs up</button>
+
+          <button>Thumbs Down </button>
+        </div>
+      );
     });
   };
   console.log("line 11", trending);
   return (
     <React.Fragment>
       <h3>Trending</h3>
-      <ul>{displayTrendingShows()}</ul>
+      <section className="trending-shows">{displayTrendingShows()}</section>
     </React.Fragment>
   );
 };
