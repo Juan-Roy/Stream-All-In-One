@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "push": "git add . && git commit -m $M && git push",
+    "push": "git add . && git commit -m $m && git push",
     "test1": "ls $Anyhting"
   },
   "eslintConfig": {

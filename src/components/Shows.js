@@ -12,11 +12,11 @@ const Shows = () => {
     return trending.map((show) => {
       return (
         <div className="card" key={show.show.ids.imdb}>
-          <h1>{show.show.title}</h1>
-
-          <button>Thumbs up</button>
-
-          <button>Thumbs Down </button>
+          <h3>{show.show.title}</h3>
+          <div>
+            <button>Up</button>
+            <button>Down </button>
+          </div>
         </div>
       );
     });
